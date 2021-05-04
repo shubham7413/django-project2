@@ -1,0 +1,29 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block homeactive%}active{%endblock homeactive%}
+{%block body%}
+<div class="conatiner my-3">
+  <h1 class="text-center">Add Task</h1>
+
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>{{success}}</strong> Your form is submitted.
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>  
+  </div>
+
+  <div class="container">
+    <form action="/" method="POST">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="task" class="form-label">Email address</label>
+        <input type="text" class="form-control" id="task" name="task" aria-describedby="emailHelp" />
+      </div>
+      <div class="mb-3">
+        <label for="desc" class="form-label">Example textarea</label>
+        <textarea class="form-control" id="desc" name="desc" rows="3"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
+</div>
+{%endblock body%}
